@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
+
+    <!-- Preload fuente crítica -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Elm+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Sin preload: las imágenes de servicios van con lazy loading -->
+
+    <link rel="stylesheet" href="./CSS/style.css">
+
     <title>JOTAC Refrigeraciones</title>
 </head>
 
 <body>
-    
+
     <nav>
         <h1 class="NavText">Servicio Técnico de Refrigeración JOTAC</h1>
         <a class="NavText botonNav" href="#contacto">Contactar</a>
     </nav>
 
     <main>
-    <h2>Técnico Especializado en Refrigeración</h2>
-    <h3>Reparación e instalación de Aires Acondicionados, Heladeras y Lavarropas</h3>
-
-    <div class="botonesMain">
-        <a class="botonMain" href="#Servicios">Ver servicios</a>
-        <a class="botonMain" href="#contacto">Solicitar presupuesto</a>
-    </div>
-
+        <h2>Técnico Especializado en Refrigeración</h2>
+        <h3>Reparación e instalación de Aires Acondicionados, Heladeras y Lavarropas</h3>
+        <div class="botonesMain">
+            <a class="botonMain" href="#Servicios">Ver servicios</a>
+            <a class="botonMain" href="#contacto">Solicitar presupuesto</a>
+        </div>
     </main>
 
     <div id="Servicios" class="NServicios">
@@ -34,60 +38,76 @@
         <div class="ContentServicios">
 
             <div>
-              <img src="./Imagenes/Heladera.webp"  width="800" height="500" loading="lazy" alt="">
-              <h2 class="NTxt2">Heladeras y Freezers</h2>
-              <p class="NTxtP">Reparación de heladeras domésticas, comerciales e industriales. Diagnóstico y reparación de todo tipo de equipos de refrigeración.</p>
+                <!-- srcset: el navegador elige el tamaño justo según pantalla -->
+                <img
+                    src="./Imagenes/Heladera.jpg"
+                    width="380" height="180"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Reparación de heladeras y freezers">
+                <h2 class="NTxt2">Heladeras y Freezers</h2>
+                <p class="NTxtP">Reparación de heladeras domésticas, comerciales e industriales. Diagnóstico y reparación de todo tipo de equipos de refrigeración.</p>
             </div>
 
-         <div>
-                <img src="./Imagenes/Aire.webp" width="800" height="500" loading="lazy" alt="">
-              <h2 class="NTxt2">Aires Acondicionados</h2>
-               <p class="NTxtP">Instalación, reparación y mantenimiento preventivo de aires acondicionados. Carga de gas, limpieza profunda y service completo.</p>
-         </div>
+            <div>
+                <img
+                    src="./Imagenes/Aire.jpg"
+                    width="380" height="180"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Instalación y reparación de aires acondicionados">
+                <h2 class="NTxt2">Aires Acondicionados</h2>
+                <p class="NTxtP">Instalación, reparación y mantenimiento preventivo de aires acondicionados. Carga de gas, limpieza profunda y service completo.</p>
+            </div>
 
-              <div>
-                <img src="./Imagenes/Lavaropa.webp" width="800" height="500" loading="lazy" alt="">
-               <h2 class="NTxt2">Lavarropas</h2>
+            <div>
+                <img
+                    src="./Imagenes/Lavaropa.webp"
+                    width="380" height="180"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Reparación de lavarropas automáticos y semi-automáticos">
+                <h2 class="NTxt2">Lavarropas</h2>
                 <p class="NTxtP">Reparamos todo tipo de lavarropas automáticos y semi-automáticos. Servicio a domicilio y retiro de equipos. Presupuesto sin cargo.</p>
-         </div>
+            </div>
 
         </div>
-
     </div>
 
     <section>
         <h2>¿Por Qué Elegirnos?</h2>
-
         <div class="ContentR">
+
             <div class="Reconocimineto">
-                <img src="./Imagenes/Iconos/Herramienta.png" alt="">
+                <img src="./Imagenes/Iconos/Herramienta.png" width="60" height="60" loading="lazy" decoding="async" alt="Ícono herramienta">
                 <h2>Experiencia Profesional</h2>
                 <p>Técnico especializado con años de experiencia en refrigeración y climatización</p>
             </div>
 
             <div class="Reconocimineto">
-                <img src="./Imagenes/Iconos/Camion.png" alt="">
+                <!-- Ícono camión: si el fondo es negro, convertilo a SVG o PNG con transparencia -->
+                <img src="./Imagenes/Iconos/Camion.png" width="60" height="60" loading="lazy" decoding="async" alt="Ícono camión">
                 <h2>Retiro de Equipos</h2>
                 <p>Pasamos a buscar el equipo a tu domicilio y lo devolvemos reparado</p>
             </div>
 
             <div class="Reconocimineto">
-                <img src="./Imagenes/Iconos/Tiempo.png" alt="">
+                <img src="./Imagenes/Iconos/Tiempo.png" width="60" height="60" loading="lazy" decoding="async" alt="Ícono reloj">
                 <h2>Atención Rápida</h2>
                 <p>Respuesta inmediata a tu consulta y servicio de urgencias disponible</p>
             </div>
 
             <div class="Reconocimineto">
-                <img src="./Imagenes/Iconos/Distintivo.png" alt="">
+                <img src="./Imagenes/Iconos/Distintivo.png" width="60" height="60" loading="lazy" decoding="async" alt="Ícono garantía">
                 <h2>Trabajo Garantizado</h2>
                 <p>Garantía en todos nuestros trabajos y uso de repuestos originales</p>
             </div>
+
         </div>
     </section>
 
-
     <div class="Estudio">
-        <img src="./Imagenes/Iconos/Estudio.png" alt="">
+        <img src="./Imagenes/Iconos/Estudio.png" width="70" height="70" loading="lazy" decoding="async" alt="Ícono estudio">
         <h2>Capacitación y Certificaciones</h2>
         <h3>Formación continua y actualizada para brindar el mejor servicio técnico</h3>
         <div class="ListaEstudio">
@@ -101,49 +121,49 @@
             <p>Actualización constante en nuevas tecnologías y técnicas de reparación</p>
         </div>
     </div>
-    
 
-<div id="contacto">
-    <h2>Contacto</h2>
+    <div id="contacto">
+        <h2>Contacto</h2>
 
-    <div class="ContentContacto">
-        <div>
-            <img src="./Imagenes/Iconos/Celu.png" alt="">
-            <div class="texto">
-                <h2>Teléfono</h2>
-                <h3>+54 9 261 540-0463</h3>
-                <p>Atendemos de Lunes a Viernes de 8:00 a 18:00hs</p>
+        <div class="ContentContacto">
+
+            <div>
+                <img src="./Imagenes/Iconos/Celu.png" width="40" height="40" loading="lazy" decoding="async" alt="Teléfono">
+                <div class="texto">
+                    <h2>Teléfono</h2>
+                    <h3>+54 9 261 540-0463</h3>
+                    <p>Atendemos de Lunes a Viernes de 8:00 a 18:00hs</p>
+                </div>
             </div>
+
+            <div>
+                <img src="./Imagenes/Iconos/Mail.png" width="40" height="40" loading="lazy" decoding="async" alt="Email">
+                <div class="texto">
+                    <h2>Email</h2>
+                    <h3>servicio@tecnicorefrigeracion.com</h3>
+                </div>
+            </div>
+
+            <div>
+                <img src="./Imagenes/Iconos/Ubi.png" width="40" height="40" loading="lazy" decoding="async" alt="Ubicación">
+                <div class="texto">
+                    <h2>Zona de Cobertura</h2>
+                    <h3>Gran Mendoza</h3>
+                </div>
+            </div>
+
+            <a class="itemContacto" href="https://www.instagram.com/jota_c_refrigeraciones?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                <img src="./Imagenes/Iconos/Instagram.png" width="40" height="40" loading="lazy" decoding="async" alt="Instagram">
+                <div class="texto">
+                    <h2>Instagram</h2>
+                    <h3>jotac_c_refrigeraciones</h3>
+                </div>
+            </a>
+
         </div>
 
-        <div>
-            <img src="./Imagenes/Iconos/Mail.png" alt="">
-            <div class="texto">
-                <h2>Email</h2>
-                <h3>servicio@tecnicorefrigeracion.com</h3>
-            </div>
-        </div>
-
-        <div>
-            <img src="./Imagenes/Iconos/Ubi.png" alt="">
-            <div class="texto">
-                <h2>Zona de Cobertura</h2>
-                <h3>Gran Mendoza</h3>
-            </div>
-        </div>
-
-        <a class="itemContacto" href="https://www.instagram.com/jota_c_refrigeraciones?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-            <img src="./Imagenes/Iconos/Instagram.png" alt="Instagram">
-            <div class="texto">
-            <h2>Instagram</h2>
-            <h3>jotac_c_refrigeraciones</h3>
-            </div>
-        </a>
-
+        <h3>Contáctenos por WhatsApp o llamada para coordinar una visita</h3>
     </div>
-
-    <h3>Contáctenos por WhatsApp o llamada para coordinar una visita</h3>
-</div>
 
     <footer>
         <h2>Servicio Técnico de Refrigeración JOTAC</h2>

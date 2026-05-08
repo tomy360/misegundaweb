@@ -1,182 +1,185 @@
-
-
-*{
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
-    margin: 0;
-    font-family: "Elms Sans", sans-serif;
+/* ── Base ───────────────────────────────────────────────── */
+body {
+    font-family: "Elm Sans", sans-serif;
+    /* Evita reflow de fuente y mejora render */
+    font-display: swap;
+    /* Mejora suavizado de texto */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
 }
 
-nav{
+/* ── Imágenes: por defecto no se desbordan ──────────────── */
+img {
+    max-width: 100%;
+    height: auto;
+    /* Reserva espacio antes de cargar → evita layout shift (CLS) */
+    content-visibility: auto;
+}
+
+/* ── Nav ────────────────────────────────────────────────── */
+nav {
     background-color: #0F2854;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0px;
 }
 
-h1{
+h1 {
     font-size: 20px;
 }
 
-.NavText{
+.NavText {
     color: white;
     text-decoration: none;
     margin: 0;
 }
 
-.botonNav{
+.botonNav {
     background-color: #BDE8F5;
     color: black;
     padding: 10px 20px;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: background-color 0.3s;
     font-weight: bold;
+    /* Mejora performance de hover con will-change */
+    will-change: background-color;
 }
 
-.botonNav:hover{
+.botonNav:hover {
     background-color: #9fd4e3;
 }
-/* ............................................................................... */
 
-main{
+/* ── Main (hero) ────────────────────────────────────────── */
+main {
     background-color: #1C4D8D;
-    margin-top: 0px;
     padding: 100px;
     display: flex;
-    flex-direction: column;     
-    align-items: center;        
-    justify-content: center;    
-    text-align: center;         
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 main h2,
-main h3{
-    margin-top: 0;
+main h3 {
     color: white;
 }
 
-main h2{
+main h2 {
     font-size: 60px;
 }
 
-main h3{
+main h3 {
     font-size: 27px;
+    margin-top: 12px;
 }
 
-.botonMain{
+.botonMain {
     background-color: #BDE8F5;
     color: black;
     padding: 20px 30px;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: background-color 0.3s;
     text-decoration: none;
     font-weight: bold;
+    will-change: background-color;
 }
 
-.botonMain:hover{
+.botonMain:hover {
     background-color: #9fd4e3;
 }
 
-.botonesMain{
+.botonesMain {
     display: flex;
     gap: 15px;
     margin-top: 70px;
-
 }
 
-/* ....................................................................... */
-
-.NServicios{
-    background-color: #f5f5f5; 
-    padding: 80px 40px;        
+/* ── Servicios ──────────────────────────────────────────── */
+.NServicios {
+    background-color: #f5f5f5;
+    padding: 80px 40px;
 }
 
-
-.NTxtT{
+.NTxtT {
     font-size: 42px;
     margin-bottom: 50px;
     text-align: center;
 }
 
-
-.ContentServicios{
+.ContentServicios {
     display: flex;
     justify-content: center;
     gap: 40px;
-    max-width: 1200px;   
-    margin: 0 auto;      
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-
-.ContentServicios div{
+.ContentServicios div {
     flex: 1;
-    max-width: 380px;   
+    max-width: 380px;
     padding: 25px;
     background-color: white;
     border-radius: 12px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
-    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+    /* Evita que el hover dispare repaint en toda la página */
+    will-change: transform;
 }
 
-
-.ContentServicios div:hover{
+.ContentServicios div:hover {
     transform: translateY(-5px);
 }
 
-
-.NTxt2{
+.NTxt2 {
     font-size: 26px;
     margin: 15px 0 10px;
 }
 
-.NTxtP{
+.NTxtP {
     font-size: 18px;
     line-height: 1.5;
 }
 
-
-.NServicios img{
+/* Imágenes de servicios: tamaño real de display, no 800x500 */
+.NServicios img {
     width: 100%;
-    height: 180px;        
+    height: 180px;
     object-fit: cover;
     border-radius: 10px;
     display: block;
-    image-rendering: auto;
+    /* GPU layer para evitar repaint en scroll */
+    transform: translateZ(0);
 }
 
-
-/*......................................................................... */
-
-section{
+/* ── Por qué elegirnos ──────────────────────────────────── */
+section {
     padding: 80px 40px;
-
 }
 
-
-section h2{
+section h2 {
     text-align: center;
     font-size: 40px;
     margin-bottom: 50px;
 }
 
-
-.ContentR{
+.ContentR {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     gap: 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-
-.Reconocimineto{
+.Reconocimineto {
     flex: 1;
     max-width: 250px;
     display: flex;
@@ -185,62 +188,59 @@ section h2{
     text-align: center;
 }
 
-
-.Reconocimineto img{
+.Reconocimineto img {
     width: 60px;
+    height: 60px;
+    object-fit: contain;
     margin-bottom: 15px;
 }
 
-
-.Reconocimineto h2{
+.Reconocimineto h2 {
     font-size: 25px;
-    width: 100%;
     text-align: center;
     margin: 10px 0;
-    white-space: normal;
 }
 
-
-.Reconocimineto p{
+.Reconocimineto p {
     font-size: 18px;
     color: #555;
 }
 
-/*................................................................................ */
-
-.Estudio{
+/* ── Estudio / Certificaciones ──────────────────────────── */
+.Estudio {
     text-align: center;
     padding: 60px 20px;
 }
 
-.Estudio img{
+.Estudio img {
     width: 70px;
+    height: 70px;
+    object-fit: contain;
     margin-bottom: 15px;
-       image-rendering: auto;
 }
 
-.Estudio h2{
+.Estudio h2 {
     font-size: 32px;
     margin-bottom: 10px;
 }
 
-.Estudio h3{
+.Estudio h3 {
     font-size: 18px;
     color: #555;
     margin-bottom: 30px;
 }
 
-.ListaEstudio{
+.ListaEstudio {
     background-color: #f5f5f5;
     padding: 25px;
     border-radius: 10px;
-    width: 90%;        
-    max-width: 1000px; 
+    width: 90%;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: left;
-    gap: 30px;
 }
-.ListaEstudio ul{
+
+.ListaEstudio ul {
     list-style: disc;
     padding-left: 20px;
     width: 90%;
@@ -249,348 +249,315 @@ section h2{
     border-bottom: 1px solid #ddd;
     display: flex;
     flex-direction: column;
-    gap: 12px; 
-    
+    gap: 12px;
 }
 
-.ListaEstudio li{
-    margin-bottom: 10px;
+.ListaEstudio li {
     font-size: 20px;
 }
 
-.ListaEstudio hr{
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
-}
-
-.ListaEstudio p{
+.ListaEstudio p {
     text-align: center;
     font-size: 18px;
     color: #444;
 }
 
-/*.............................................................................. */
-
-
-#contacto{
+/* ── Contacto ───────────────────────────────────────────── */
+#contacto {
     padding: 20px 20px 60px;
 }
 
-#contacto > h2{
+#contacto > h2 {
     text-align: center;
     margin-bottom: 25px;
     font-size: 35px;
 }
 
-.ContentContacto{
+.ContentContacto {
     max-width: 800px;
     margin: 0 auto;
 }
 
 .ContentContacto > div,
-.ContentContacto > a{
+.ContentContacto > a {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
-
     text-decoration: none;
     color: inherit;
 }
 
-
-.ContentContacto > a:hover{
+.ContentContacto > a:hover {
     background-color: #f5f5f5;
     border-radius: 8px;
     padding-left: 10px;
-    transition: 0.3s;
+    transition: background-color 0.3s, padding-left 0.3s;
 }
 
-.ContentContacto img{
+.ContentContacto img {
     width: 40px;
     height: 40px;
     object-fit: contain;
-    image-rendering: auto;
 }
 
-.ContentContacto .texto{
+.ContentContacto .texto {
     display: flex;
     flex-direction: column;
 }
 
-.ContentContacto h2{
+.ContentContacto h2 {
     margin: 0;
     font-size: 20px;
 }
 
-.ContentContacto h3{
+.ContentContacto h3 {
     margin: 5px 0;
     font-size: 16px;
     font-weight: normal;
     color: #333;
 }
 
-.ContentContacto p{
+.ContentContacto p {
     margin: 0;
     font-size: 14px;
     color: #666;
 }
 
-#contacto > h3{
+#contacto > h3 {
     text-align: center;
     margin-top: 30px;
 }
 
-/*............................................................ */
-
-
-footer{
-    background-color: #0F2854; 
-    color: white;              
-
+/* ── Footer ─────────────────────────────────────────────── */
+footer {
+    background-color: #0F2854;
+    color: white;
     text-align: center;
     padding: 40px 20px;
 }
 
-
-footer h2{
-    margin: 0;
+footer h2 {
     font-size: 24px;
 }
 
-footer h3{
+footer h3 {
     margin: 10px 0;
     font-size: 16px;
     font-weight: normal;
 }
 
-
-footer p{
+footer p {
     margin-top: 15px;
     font-size: 14px;
-    opacity: 0.8; 
+    opacity: 0.8;
 }
 
-/*.................................................................................... */
-@media (max-width:1024px){
+/* ── Responsive 1024px ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    main {
+        padding: 70px 30px;
+    }
 
-main{
-padding:70px 30px;
+    main h2 {
+        font-size: 42px;
+    }
+
+    main h3 {
+        font-size: 22px;
+    }
+
+    .botonesMain {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .botonMain {
+        display: block;
+        width: 90%;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .ContentServicios {
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .ContentServicios div {
+        max-width: 45%;
+    }
+
+    .ContentR {
+        flex-wrap: wrap;
+        gap: 45px;
+    }
+
+    .Reconocimineto {
+        max-width: 45%;
+    }
 }
 
-main h2{
-font-size:42px;
+/* ── Responsive 768px ───────────────────────────────────── */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    main {
+        padding: 55px 20px;
+    }
+
+    main h2 {
+        font-size: 30px;
+    }
+
+    main h3 {
+        font-size: 18px;
+    }
+
+    .botonesMain {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .botonMain {
+        display: block;
+        width: 90%;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .NServicios {
+        padding: 60px 20px;
+    }
+
+    .ContentServicios {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .ContentServicios div {
+        max-width: 100%;
+    }
+
+    .ContentR {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .Reconocimineto {
+        max-width: 100%;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    section h2 {
+        font-size: 32px;
+    }
+
+    .ListaEstudio {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .ListaEstudio li {
+        font-size: 16px;
+    }
+
+    .ContentContacto img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ContentContacto h2 {
+        font-size: 18px;
+    }
+
+    .ContentContacto h3 {
+        font-size: 14px;
+    }
+
+    .ContentContacto p {
+        font-size: 13px;
+    }
 }
 
-main h3{
-font-size:22px;
-}
+/* ── Responsive 480px ───────────────────────────────────── */
+@media (max-width: 480px) {
+    main h2 {
+        font-size: 24px;
+    }
 
-.botonesMain{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-width:100%;
-gap:15px;
-margin-top:40px;
-}
+    main h3 {
+        font-size: 16px;
+    }
 
-.botonMain{
-display:block;
-width:90%;
-max-width:320px;
-margin:0 auto;
-text-align:center;
-}
+    .botonesMain {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        margin-top: 40px;
+    }
 
-.ContentServicios{
-flex-wrap:wrap;
-gap:25px;
-}
+    .botonMain {
+        display: block;
+        width: 90%;
+        max-width: 320px;
+        text-align: center;
+    }
 
-.ContentServicios div{
-max-width:45%;
-}
+    .NTxtT,
+    section h2 {
+        font-size: 28px;
+    }
 
-.ContentR{
-flex-wrap:wrap;
-gap:45px;
-}
+    .NTxt2 {
+        font-size: 22px;
+    }
 
-.Reconocimineto{
-max-width:45%;
-}
-}
-/* ............................................................................................. */
+    .NTxtP {
+        font-size: 16px;
+    }
 
-@media (max-width:768px){
+    .Reconocimineto p {
+        font-size: 16px;
+    }
 
-nav{
-flex-direction:column;
-gap:12px;
-text-align:center;
-padding:18px;
-}
+    .Estudio h2 {
+        font-size: 24px;
+    }
 
-h1{
-font-size:18px;
-}
+    .Estudio h3 {
+        font-size: 16px;
+    }
 
-main{
-padding:55px 20px;
-}
+    footer h2 {
+        font-size: 20px;
+    }
 
-main h2{
-font-size:30px;
-}
+    footer h3 {
+        font-size: 14px;
+    }
 
-main h3{
-font-size:18px;
-}
-
-.botonesMain{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-width:100%;
-gap:15px;
-margin-top:40px;
-}
-
-.botonMain{
-display:block;
-width:90%;
-max-width:320px;
-margin:0 auto;
-text-align:center;
-}
-
-.NServicios{
-padding:60px 20px;
-}
-
-.ContentServicios{
-flex-direction:column;
-gap:25px;
-}
-
-.ContentServicios div{
-max-width:100%;
-}
-
-.ContentR{
-flex-direction:column;
-gap:35px;
-}
-
-.Reconocimineto{
-max-width:100%;
-}
-
-section{
-padding:60px 20px;
-}
-
-section h2{
-font-size:32px;
-}
-
-.ListaEstudio{
-width:100%;
-padding:20px;
-}
-
-.ListaEstudio li{
-font-size:16px;
-}
-
-.ContentContacto img{
-width:34px;
-height:34px;
-}
-
-.ContentContacto h2{
-font-size:18px;
-}
-
-.ContentContacto h3{
-font-size:14px;
-}
-
-.ContentContacto p{
-font-size:13px;
-}
-}
-
-
-/* ............................................................. */
-@media (max-width:480px){
-
-main h2{
-font-size:24px;
-}
-
-main h3{
-font-size:16px;
-}
-
-.botonesMain{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-width:100%;
-gap:15px;
-margin-top:40px;
-}
-
-.botonMain{
-display:block;
-width:90%;
-max-width:320px;
-margin:0 auto;
-text-align:center;
-}
-
-.NTxtT,
-section h2{
-font-size:28px;
-}
-
-.NTxt2{
-font-size:22px;
-}
-
-.NTxtP{
-font-size:16px;
-}
-
-.Reconocimineto p{
-font-size:16px;
-}
-
-.Estudio h2{
-font-size:24px;
-}
-
-.Estudio h3{
-font-size:16px;
-}
-
-footer h2{
-font-size:20px;
-}
-
-footer h3{
-font-size:14px;
-}
-
-footer p{
-font-size:12px;
-}
+    footer p {
+        font-size: 12px;
+    }
 }
