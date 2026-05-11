@@ -57,6 +57,74 @@ h1 {
     background-color: #9fd4e3;
 }
 
+
+
+/* ── Spotify desplegable ───────────────────────────── */
+
+.SpotifyCont{
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+#toggleSpotify{
+    display: none;
+}
+
+.BotonSpotify{
+    display: inline-block;
+    background-color: #1DB954;
+    color: white;
+    padding: 16px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.BotonSpotify:hover{
+    transform: translateY(-2px);
+    opacity: 0.92;
+}
+
+.BotonSpotify .cerrar{
+    display: none;
+}
+
+#toggleSpotify:checked + .BotonSpotify .abrir{
+    display: none;
+}
+
+#toggleSpotify:checked + .BotonSpotify .cerrar{
+    display: inline;
+}
+
+.SpotifyBox{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+}
+
+.SpotifyBox iframe{
+    border-radius: 14px;
+}
+
+#toggleSpotify:checked ~ .SpotifyBox{
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+
+
+
 /* ── Main (hero) ────────────────────────────────────────── */
 main {
     background-color: #1C4D8D;
@@ -410,6 +478,10 @@ footer p {
         text-align: center;
         padding: 18px;
     }
+
+    
+
+
 
     h1 {
         font-size: 18px;
